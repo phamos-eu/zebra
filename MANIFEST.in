@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include zebra *.css
+recursive-include zebra *.csv
+recursive-include zebra *.html
+recursive-include zebra *.ico
+recursive-include zebra *.js
+recursive-include zebra *.json
+recursive-include zebra *.md
+recursive-include zebra *.png
+recursive-include zebra *.py
+recursive-include zebra *.svg
+recursive-include zebra *.txt
+recursive-exclude zebra *.pyc
