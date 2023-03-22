@@ -1,0 +1,105 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:title",
+ "creation": "2023-03-16 14:23:08.624890",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "rfid_info_section",
+  "title",
+  "rfid_settings",
+  "zebra_url",
+  "column_break_zgs55",
+  "username",
+  "password",
+  "rfid_other_info",
+  "serial_no",
+  "column_break_wji6a",
+  "model"
+ ],
+ "fields": [
+  {
+   "fieldname": "zebra_url",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Zebra URL",
+   "reqd": 1
+  },
+  {
+   "fieldname": "username",
+   "fieldtype": "Data",
+   "label": "Username",
+   "reqd": 1
+  },
+  {
+   "fieldname": "password",
+   "fieldtype": "Password",
+   "label": "Password",
+   "reqd": 1
+  },
+  {
+   "fieldname": "rfid_info_section",
+   "fieldtype": "Section Break",
+   "label": "RFID Info"
+  },
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "label": "Title",
+   "unique": 1
+  },
+  {
+   "fieldname": "rfid_settings",
+   "fieldtype": "Section Break",
+   "label": "RFID Settings"
+  },
+  {
+   "fieldname": "column_break_zgs55",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "rfid_other_info",
+   "fieldtype": "Section Break",
+   "label": "RFID Other Info"
+  },
+  {
+   "fieldname": "serial_no",
+   "fieldtype": "Data",
+   "label": "Serial No",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_wji6a",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "model",
+   "fieldtype": "Data",
+   "label": "Model",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2023-03-20 13:08:30.502636",
+ "modified_by": "Administrator",
+ "module": "Zebra",
+ "name": "RFID Reader",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

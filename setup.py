@@ -9,8 +9,8 @@ from zebra import __version__ as version
 setup(
 	name="zebra",
 	version=version,
-	description="zebra",
-	author="eusectra",
+	description="Zebra Integration",
+	author="phamos",
 	author_email="hello@phamos.com",
 	packages=find_packages(),
 	zip_safe=False,

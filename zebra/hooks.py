@@ -2,8 +2,8 @@ from . import __version__ as app_version
 
 app_name = "zebra"
 app_title = "Zebra"
-app_publisher = "eusectra"
-app_description = "zebra"
+app_publisher = "phamos"
+app_description = "Zebra Integration"
 app_icon = "octicon octicon-file-directory"
 app_color = "grey"
 app_email = "hello@phamos.com"

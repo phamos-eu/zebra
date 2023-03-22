@@ -1,6 +1,6 @@
 ## Zebra
 
-zebra
+Zebra Integration
 
 #### License
 

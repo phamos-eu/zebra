@@ -1,0 +1,108 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2023-03-02 16:38:39.747603",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "antenna",
+  "id",
+  "datetime",
+  "column_break_ufp4d",
+  "rssi",
+  "type",
+  "read",
+  "event_num",
+  "section_break_u8ev6",
+  "location"
+ ],
+ "fields": [
+  {
+   "fieldname": "id",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "ID",
+   "read_only": 1
+  },
+  {
+   "fieldname": "datetime",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "DateTime",
+   "read_only": 1
+  },
+  {
+   "fieldname": "rssi",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "RSSI",
+   "read_only": 1
+  },
+  {
+   "fieldname": "type",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Type",
+   "read_only": 1
+  },
+  {
+   "fieldname": "read",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Read",
+   "read_only": 1
+  },
+  {
+   "fieldname": "event_num",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Event Num",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_ufp4d",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "antenna",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Antenna",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_u8ev6",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "location",
+   "fieldtype": "Link",
+   "label": "Location",
+   "options": "Location"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2023-03-22 09:52:27.229665",
+ "modified_by": "Administrator",
+ "module": "Zebra",
+ "name": "RFID Logs",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}
