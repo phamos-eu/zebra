@@ -9,13 +9,13 @@
   "antenna",
   "id",
   "datetime",
+  "rfid_reader",
+  "location",
   "column_break_ufp4d",
   "rssi",
   "type",
   "read",
-  "event_num",
-  "section_break_u8ev6",
-  "location"
+  "event_num"
  ],
  "fields": [
   {
@@ -72,19 +72,23 @@
    "read_only": 1
   },
   {
-   "fieldname": "section_break_u8ev6",
-   "fieldtype": "Section Break"
-  },
-  {
    "fieldname": "location",
    "fieldtype": "Link",
    "label": "Location",
-   "options": "Location"
+   "options": "Location",
+   "read_only": 1
+  },
+  {
+   "fieldname": "rfid_reader",
+   "fieldtype": "Link",
+   "label": "RFID Reader",
+   "options": "RFID Reader",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-03-22 09:52:27.229665",
+ "modified": "2023-03-30 15:06:40.021514",
  "modified_by": "Administrator",
  "module": "Zebra",
  "name": "RFID Logs",

@@ -11,6 +11,7 @@
   "title",
   "rfid_settings",
   "zebra_url",
+  "location",
   "column_break_zgs55",
   "username",
   "password",
@@ -79,11 +80,17 @@
    "fieldtype": "Data",
    "label": "Model",
    "read_only": 1
+  },
+  {
+   "fieldname": "location",
+   "fieldtype": "Link",
+   "label": "Location",
+   "options": "Location"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-03-20 13:08:30.502636",
+ "modified": "2023-03-30 14:07:38.207912",
  "modified_by": "Administrator",
  "module": "Zebra",
  "name": "RFID Reader",
