@@ -31,15 +31,21 @@ def callback(**kwargs):
             }
         ]
     """
-    ip_address = frappe.request.host.split(":")[0] #"152.63.45.95"
+    ip_address = frappe.request.environ["REMOTE_ADDR"] #frappe.request.host.split(":")[0] #"152.63.45.95"
     (rfid_reader, location) = get_location(ip_address)
 
     data = kwargs.get("json")
     tag_data = json.loads(data or '[]')
     last_reading_by_tag = get_last_reading_by_tag(tag_data)
+    print("TAG_DATA: ", tag_data)
+    print("LAST_READING_BY_TAG: ", last_reading_by_tag)
+    print("IP ADDRESS: ", ip_address)
+    print("LOCATION: ", location)
 
     for tag in last_reading_by_tag.keys():
-        if can_create_new_log(tag):
+        can_create_new_log_var = can_create_new_log(tag, location)
+        print("can_create_new_log: ", can_create_new_log_var)
+        if can_create_new_log_var:
             create_rfid_log(last_reading_by_tag[tag], rfid_reader, location)
 
 
@@ -51,6 +57,7 @@ def create_rfid_log(reading, rfid_reader, location):
     doc = frappe.new_doc("RFID Logs")
     doc.antenna = reading['data']['antenna']
     doc.id = reading['data']['idHex']
+    print("CREATING LOG FOR TAG: ", doc.id)
     doc.datetime = frappe.utils.now()
     doc.rssi = reading['data']['peakRssi']
     doc.read = reading['data']['reads']
@@ -81,12 +88,14 @@ def get_location(ip_address):
     return (rfid_reader, location)
 
 
-def can_create_new_log(tag):
+def can_create_new_log(tag, location):
     try:
         last_doc = frappe.get_last_doc('RFID Logs', filters={"id": tag}, order_by="datetime desc")
-        delta = frappe.utils.datetime.datetime.now() - last_doc.datetime
-        if delta.total_seconds() > MIN_SECONDS_FROM_LAST_LOG:
+        if last_doc.location != location: # only create log if location has changed
             return True
+        # delta = frappe.utils.datetime.datetime.now() - last_doc.datetime
+        # if delta.total_seconds() > MIN_SECONDS_FROM_LAST_LOG:
+        #     return True
         return False
     except DoesNotExistError:
         return True

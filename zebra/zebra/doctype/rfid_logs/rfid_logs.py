@@ -10,4 +10,5 @@ class RFIDLogs(Document):
 		equipment = frappe.get_doc('Equipment', {'rfid_number': self.id})
 		if equipment.last_location != self.location:
 			equipment.last_location = self.location
-			equipment.save()
+			equipment.item_code = "Test" # TODO: this should not be hardcoded
+			equipment.save(ignore_permissions=True)
