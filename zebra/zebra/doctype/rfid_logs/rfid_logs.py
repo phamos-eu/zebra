@@ -8,6 +8,6 @@ class RFIDLogs(Document):
 	def after_insert(self):
 		""" When record is inserted check for the equipment with the rfid no. and update the location field """
 		equipment = frappe.get_doc('Equipment', {'rfid_number': self.id})
-		if equipment.last_location != self.location:
+		if not equipment.last_location or equipment.last_location != self.location:
 			equipment.last_location = self.location
 			equipment.save()
