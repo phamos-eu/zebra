@@ -24,10 +24,11 @@ def get_setting(doc):
 def get_token(doc):
     #doc = get_setting(doc)
     url = f'{doc.zebra_url}/cloud/localRestLogin'
-    headers = {"Content-Type": "text/plain", "Authorization": "Basic YWRtaW46U3RhcnQxMjMh"}
-    res = requests.get(url, \
-            auth=HTTPDigestAuth(f'{doc.username}', f'doc.get_password("password")'), \
-            headers=headers, verify=False)
+    res = requests.get(url, auth=(f'{doc.username}', f'{doc.get_password("password")}'), verify=False)
+    # headers = {"Content-Type": "text/plain", "Authorization": "Basic YWRtaW46U3RhcnQxMjMh"}
+    # res = requests.get(url, \
+    #         auth=HTTPDigestAuth(f'{doc.username}', f'doc.get_password("password")'), \
+    #         headers=headers, verify=False)
     return res
 
 @frappe.whitelist()
@@ -44,9 +45,9 @@ def start_tag_read(doc):
             time.sleep(5)
             frappe.msgprint("We are now started reading Zebra Tags...")
         else:
-            frappe.msgprint("Something went wrong please try again later!")
+            frappe.msgprint("Something went wrong please try again later! {}".format(response.text))
     else:
-        frappe.msgprint("Something went wrong please try again later!")
+        frappe.msgprint("Something went wrong please try again later! {}".format(response.text))
 
 @frappe.whitelist()
 def zebra_operations(operation, doc):
@@ -69,6 +70,6 @@ def zebra_operations(operation, doc):
             else:
                 return response.text #frappe.msgprint(f'{response.text}')
         else:
-            frappe.msgprint("Something went wrong please try again later!")
+            frappe.msgprint("Something went wrong please try again later! {}".format(response.text))
     else:
-        frappe.msgprint("Something went wrong please try again later!")
+        frappe.msgprint("Something went wrong please try again later! {}".format(response.text))
